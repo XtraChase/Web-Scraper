@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "Avant-Garde-Gothic-Lt-Book-Regular";
+  src: url("../fonts/ITC-Avant-Garde-Gothic-LT-Book-Regular.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "Avant-Garde-Gothic-Lt-Bold";
+  src: url("../fonts/ITC-Avant-Garde-Gothic-LT-Bold.otf") format("opentype");
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Avant-Garde-Gothic-Lt-Book-Regular";
+  background-image: url(../images/white-hex.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: "Avant-Garde-Gothic-Lt-Bold";
+  text-align: center;
+  font-size: 2em;
+}
+
+#wrapper {
+  width: 80%;
+  margin: 5% auto 5% auto;
+}
+#articles {
+  display: inline-block;
+  overflow: auto;
+  width: 60%;
+  height: 200px;
+}
+#notes {
+  float: right;
+  width: 30%;
+}
+textarea,
+input {
+  display: block;
+  width: 100%;
+  background-color: #fcf5c7;
+}
+input {
+  height: 36px;
+  font-size: 24px;
+}
+textarea {
+  height: 200px;
+  font-size: 18px;
+}
