@@ -37,6 +37,8 @@ mongoose.connect(
   }
 );
 
+mongoose.connect(MONGODB_URI);
+
 // Routes
 
 // A GET route for scraping the echoJS website
