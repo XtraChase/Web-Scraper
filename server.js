@@ -26,9 +26,12 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
+//set up promise with mongoose
+mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
-  "mongodb://<XtraChase>:<Winnie2920?>@ds261238.mlab.com:61238/heroku_lt1fdblj",
+  process.env.MONGODB_URI ||
+    "mongodb://<XtraChase>:<Winnie2920?>@ds261238.mlab.com:61238/heroku_lt1fdblj",
   {
     useNewUrlParser: true
   }
