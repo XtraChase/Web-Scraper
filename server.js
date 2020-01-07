@@ -37,7 +37,7 @@ mongoose.connect(
   }
 );
 
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 
 // Routes
 
