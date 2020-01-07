@@ -27,17 +27,14 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //set up promise with mongoose
-mongoose.Promise = global.Promise;
-// Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://<XtraChase>:<Winnie2920?>@ds261238.mlab.com:61238/heroku_lt1fdblj",
-  {
-    useNewUrlParser: true
-  }
-);
 
-// mongoose.connect(MONGODB_URI);
+// Connect to the Mongo DB
+
+var MONGODB_URI =
+  process.env.MONGODB_URI ||
+  "mongodb://<XtraChase>:<Winnie2920?>@ds261238.mlab.com:61238/heroku_lt1fdblj";
+
+mongoose.connect(MONGODB_URI), { useNewUrlParser: true };
 
 // Routes
 
@@ -49,7 +46,7 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2").each(function(i, element) {
+    $("article .post-block__title").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
