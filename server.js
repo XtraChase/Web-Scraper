@@ -32,7 +32,7 @@ app.use(express.static("public"));
 
 var MONGODB_URI =
   process.env.MONGODB_URI ||
-  "mongodb://<XtraChase>:<Winnie2920?>@ds261238.mlab.com:61238/heroku_lt1fdblj";
+  "mongodb://heroku_lt1fdblj:gsp2iggadg0bo09i7jc03fp6je@ds261238.mlab.com:61238/heroku_lt1fdblj";
 
 mongoose.connect(MONGODB_URI), { useNewUrlParser: true };
 
@@ -46,14 +46,17 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article .post-block__title").each(function(i, element) {
+    $(".post-block__title").each(function(i, element) {
+      console.log();
       // Save an empty result object
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
         .children("a")
-        .text();
+        .text()
+        .trim();
+      console.log(result.title);
       result.link = $(this)
         .children("a")
         .attr("href");
