@@ -56,17 +56,17 @@ app.get("/scrape", function(req, res) {
       result.image = $(this)
         .find("img")
         .attr("src");
-      console.log(result.image);
+      // console.log(result.image);
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
           // View the added result in the console
-          // console.log(dbArticle);
+          console.log(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, log it
-          // console.log(err);
+          console.log(err);
         });
     });
 

@@ -80,6 +80,10 @@ p {
   background: rgba(97, 97, 97, 0.39);
 }
 
+.article-img {
+  margin: -10px 0px 50px 0px;
+}
+
 #notes {
   width: 100%;
 }
