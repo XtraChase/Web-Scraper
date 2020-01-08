@@ -34,7 +34,7 @@ var MONGODB_URI =
   process.env.MONGODB_URI ||
   "mongodb://heroku_lt1fdblj:gsp2iggadg0bo09i7jc03fp6je@ds261238.mlab.com:61238/heroku_lt1fdblj";
 
-mongoose.connect(MONGODB_URI), { useNewUrlParser: true };
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
 
