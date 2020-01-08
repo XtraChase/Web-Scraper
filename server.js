@@ -25,7 +25,7 @@ var MONGODB_URI =
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
-router.get("/", function(req, res) {
+app.get("/", function(req, res) {
   db.Article.find({}).then(function(articles) {
     res.render("index", { articles });
   });
@@ -39,30 +39,34 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $(".post-block__title").each(function(i, element) {
-      console.log();
+    $(".post-block").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
-        .children("a")
+        .find("a")
         .text()
         .trim();
-      console.log(result.title);
+      // console.log(result.title);
       result.link = $(this)
-        .children("a")
+        .find("a")
         .attr("href");
+      // console.log(result.link);
+      result.image = $(this)
+        .find("img")
+        .attr("src");
+      // console.log(result.image);
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
           // View the added result in the console
-          console.log(dbArticle);
+          // console.log(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, log it
-          console.log(err);
+          // console.log(err);
         });
     });
 
@@ -123,6 +127,14 @@ app.post("/articles/:id", function(req, res) {
       // If an error occurred, send it to the client
       res.json(err);
     });
+});
+
+//delete all articles from db
+app.get("/clear", function(req, res) {
+  db.Article.deleteMany({}).catch(function(err) {
+    console.log(err);
+  });
+  res.send("Articles deleted");
 });
 
 // Start the server

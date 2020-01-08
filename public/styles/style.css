@@ -21,6 +21,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  text-shadow: 1.8px 1.8px 2.75px rgba(0, 0, 0, 0.2);
 }
 
 .page-container {
@@ -37,6 +38,8 @@ h1 {
 p {
   margin-bottom: 20px;
   line-height: 1.2em;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 #news-title {
@@ -78,7 +81,6 @@ p {
 
 #notes {
   width: 100%;
-  font-weight: bold;
 }
 
 textarea,
@@ -105,7 +107,7 @@ textarea {
 
 #savenote {
   margin-top: 10px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   background-color: #a7a7a7;
   color: white;
   padding: 6px 12px 6px 12px;
