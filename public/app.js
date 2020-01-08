@@ -2,7 +2,6 @@
 $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
-    console.log(data[i].image);
     // Display the apropos information on the page
     $("#articles").prepend(
       "<p data-id='" +
@@ -10,12 +9,16 @@ $.getJSON("/articles", function(data) {
         "'>" +
         data[i].title +
         "<br />" +
+        "<a href='" +
         data[i].link +
+        '\' target="_blank">' +
+        data[i].link +
+        "</a>'" +
         "<img src='" +
         data[i].image +
-        "' alt='" +
+        "' alt='(image: " +
         data[i].title +
-        "'>" +
+        ")'>" +
         "</p>"
     );
   }
