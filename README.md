@@ -15,6 +15,8 @@ This web app lets users view and leave comments on the latest technology news fr
 - MongoDB
 - Mongoose
 - Javascript
+- Express
+- Axios
 - CSS
 
 ![Screenshot](./screenshot.png)
