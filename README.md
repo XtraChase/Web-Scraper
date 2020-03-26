@@ -17,4 +17,4 @@
 - Axios
 - CSS
 
-![Screenshot](./screenshot.png)
+![Screenshot](./public/images/screenshot.png)
